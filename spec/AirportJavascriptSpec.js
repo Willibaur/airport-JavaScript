@@ -7,7 +7,7 @@ describe('Airport', function() {
   });
 
   it('allows a plane to land', function() {
-    expect(airport.land(plane)).toEqual('Plane Has Landed!')
+    expect(airport.land(plane)).toEqual('Plane Has Landed!');
   });
 
   // it('', function() {
@@ -21,5 +21,5 @@ describe('Airport', function() {
   // it('', function() {
 
   // });
-  
+
 });
