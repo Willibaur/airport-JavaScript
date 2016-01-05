@@ -23,5 +23,5 @@ Airport.prototype.weatherCheck = function() {
   else {
     return 'Sunny';
   }
-  // return true;
+
 };
