@@ -9,7 +9,8 @@ Plane.prototype.readStatus = function () {
 Plane.prototype.changeStatus = function () {
   if (this.status === 'in flight') {
     this.status = 'landed';
-  } else (this.status === 'landed') {
+  }
+  else {
     this.status = 'in flight';
   }
 };

@@ -1,11 +1,15 @@
 describe('Plane',function(){
   var plane = new Plane();
 
-  it('When landed',function(){
-    expect(plane.readStatus()).toEqual('landed');
-  });
+  describe('status changes to', function() {
+    it('landed when at airport',function(){
+      plane.changeStatus();
+      expect(plane.readStatus()).toEqual('landed');
+    });
 
-  it('When in flight',function(){
-    expect(plane.readStatus()).toEqual('in flight');
+    it('in flight when leaves airport',function(){
+      plane.changeStatus();
+      expect(plane.readStatus()).toEqual('in flight');
+    });
   });
 });
