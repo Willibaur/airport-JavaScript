@@ -9,7 +9,7 @@ describe('Airport', function() {
     plane   = new Plane();
   });
 
-  describe('When Sunny Weather', function() {
+  describe('when sunny weather,', function() {
     beforeEach(function() {
       spyOn(Math, 'random').and.returnValue(0.2);
     });
@@ -26,19 +26,20 @@ describe('Airport', function() {
 
   });
 
-  describe('When Stormy weather', function() {
+  describe('when stormy weather,', function() {
     beforeEach(function() {
       spyOn(Math, 'random').and.returnValue(0.9);
     });
 
     describe('prevents a plane to', function() {
-      xit('take off', function() {
+      it('take off', function() {
         expect(airport.weatherCheck()).toEqual('Stormy');
         expect(function() { airport.land(plane); }).toThrowError('Plane can not land');
       });
 
       it('land', function() {
         expect(airport.weatherCheck()).toEqual('Stormy');
+        expect(function() { airport.takeOff(plane); }).toThrowError('Plane cannot take off');
       });
     });
   });

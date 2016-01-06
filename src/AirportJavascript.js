@@ -4,12 +4,16 @@ function Airport(capacity,weather) {
 }
 
   Airport.prototype.land = function(plane) {
-    this.weatherCheck();
+    if (this.weatherCheck() === 'Stormy') {
+      throw new Error('Plane can not land');
+    }
     return 'Plane Has Landed!';
   };
 
   Airport.prototype.takeOff = function(plane) {
-    this.weatherCheck();
+    if (this.weatherCheck() === 'Stormy') {
+      throw new Error('Plane cannot take off');
+    }
     return 'Plane Has Taken Off!';
   };
 
