@@ -5,7 +5,7 @@ describe('Plane',function(){
     expect(plane.readStatus()).toEqual('landed');
   });
 
-  it('When airbourne',function(){
-    expect(plane.readStatus()).toEqual('airbourne');
+  it('When in flight',function(){
+    expect(plane.readStatus()).toEqual('in flight');
   });
 });

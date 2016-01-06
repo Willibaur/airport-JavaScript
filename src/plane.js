@@ -1,5 +1,5 @@
 function Plane(status) {
-  this.status = 'airbourne';
+  this.status = 'in flight';
 }
 
 Plane.prototype.readStatus = function () {
@@ -7,18 +7,9 @@ Plane.prototype.readStatus = function () {
 };
 
 Plane.prototype.changeStatus = function () {
-  if (this.status === 'airbourne') {
+  if (this.status === 'in flight') {
     this.status = 'landed';
   } else (this.status === 'landed') {
-    this.status = 'airbourne';
+    this.status = 'in flight';
   }
 };
-
-// Plane.prototype.changeStatus = function () {
-//   if (this.status === 'landed') {
-//     return this.status;
-//   }
-//   else {
-//     this.status = 'landed';
-//   }
-//   };
