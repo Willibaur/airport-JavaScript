@@ -1,15 +1,26 @@
 describe('Plane',function(){
-  var plane = new Plane();
+  var planeInFlight = new Plane('in flight');
+  var planeLanded   = new Plane('landed');
 
-  describe('status changes to', function() {
+  describe('receives initial status when created as', function() {
+    it('in flight', function() {
+      expect(planeInFlight.readStatus()).toEqual('in flight');
+    });
+
+    it('landed', function() {
+      expect(planeLanded.readStatus()).toEqual('landed');
+    });
+  });
+
+  describe('changes status to', function() {
     it('landed when at airport',function(){
-      plane.changeStatus();
-      expect(plane.readStatus()).toEqual('landed');
+      planeInFlight.changeStatus();
+      expect(planeInFlight.readStatus()).toEqual('landed');
     });
 
     it('in flight when leaves airport',function(){
-      plane.changeStatus();
-      expect(plane.readStatus()).toEqual('in flight');
+      planeLanded.changeStatus();
+      expect(planeLanded.readStatus()).toEqual('in flight');
     });
   });
 });

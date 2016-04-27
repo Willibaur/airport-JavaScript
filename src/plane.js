@@ -1,5 +1,5 @@
-function Plane(status) {
-  this.status = 'in flight';
+function Plane(initialStatus) {
+  this.status =  initialStatus;
 }
 
 Plane.prototype.readStatus = function () {
