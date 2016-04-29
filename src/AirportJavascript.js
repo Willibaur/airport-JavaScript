@@ -1,5 +1,5 @@
-function Airport(capacity,weather) {
-  this.capacity = 20;
+function Airport(capacity, weather) {
+  this.capacity = capacity != 20 ? capacity : 20;
   this.weather = new Weather();
 }
 
