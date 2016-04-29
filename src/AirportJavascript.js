@@ -1,27 +1,21 @@
+var DEFAULT_CAPACITY = 20;
+
 function Airport(capacity, weather) {
-  this.capacity = capacity != 20 ? capacity : 20;
+  this.capacity = typeof capacity !== 'undefined' ? capacity : DEFAULT_CAPACITY;
   this.weather = new Weather();
+  this.stormy = Symbol();
 }
 
   Airport.prototype.land = function(plane) {
-    if (this.weatherCheck() === 'Stormy') {
-      throw new Error('Plane can not land');
-    }
+    if (this.weatherCheck()) { throw new Error('Plane can not land'); }
     return 'Plane Has Landed!';
   };
 
   Airport.prototype.takeOff = function(plane) {
-    if (this.weatherCheck() === 'Stormy') {
-      throw new Error('Plane cannot take off');
-    }
+    if (this.weatherCheck()) { throw new Error('Plane cannot take off');}
     return 'Plane Has Taken Off!';
   };
 
   Airport.prototype.weatherCheck = function() {
-    if (this.weather.isStormy() === true) {
-    return 'Stormy';
-    }
-    else {
-      return 'Sunny';
-    }
+    return this.weather.isStormy();
   };
