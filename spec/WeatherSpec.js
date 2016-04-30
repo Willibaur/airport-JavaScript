@@ -1,3 +1,5 @@
+'user strict';
+
 describe ('Weather', function() {
   var weather;
 

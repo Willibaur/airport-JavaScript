@@ -1,3 +1,5 @@
+'user strict';
+
 describe('Plane',function(){
   var planeInFlight;
   var planeLanded;

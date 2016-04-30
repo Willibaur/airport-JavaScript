@@ -1,3 +1,5 @@
+'user strict';
+
 var DEFAULT_CAPACITY = 20;
 
 function Airport(capacity, weather) {

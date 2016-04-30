@@ -1,3 +1,5 @@
+'user strict';
+
 function Weather() {
 }
 
