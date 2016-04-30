@@ -1,13 +1,19 @@
 describe ('Weather', function() {
-var weather;
+  var weather;
 
-beforeEach(function() {
-
-  weather =  new Weather();
-});
-
-  it ('responds to isStormy',function(){
-    expect(weather.isStormy).toBeDefined();
+  beforeEach(function() {
+    weather =  new Weather();
   });
 
+  describe('forecast returns', function() {
+    it('stormy conditions', function() {
+      spyOn(Math, 'random').and.returnValue(true);
+      expect(weather.isStormy()).toEqual(true);
+    });
+
+    it('sunny conditions', function() {
+      spyOn(Math, 'random').and.returnValue(false);
+      expect(weather.isStormy()).toEqual(false);
+    });
+  });
 });
