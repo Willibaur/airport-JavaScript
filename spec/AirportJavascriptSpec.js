@@ -1,4 +1,4 @@
-'user strict';
+'user strict'
 
 describe('Airport', function() {
   var airport;
