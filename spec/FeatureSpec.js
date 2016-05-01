@@ -23,5 +23,10 @@ describe('Feature Test:', function () {
       expect(airport.land(inFlightPlane)).toEqual('Plane Has Landed!');
       expect(inFlightPlane.getStatus()).toEqual('landed');
     });
+
+    it('take off and receives confirmation', function () {
+      expect(airport.takeOff(landedPlane)).toEqual('Plane Has Taken Off!');
+      expect(landedPlane.getStatus()).toEqual('in flight');
+    });
   });
 });
