@@ -1,25 +1,27 @@
 'user strict';
 
+
 describe('Feature Test:', function () {
-  var plane;
+  var landedPlane;
+  var inFlightPlane;
   var airport;
   var weather;
 
   beforeAll(function() {
-    plane   = new Plane('landed');
-    airport = new Airport();
-    weather = jasmine.createSpy('weather');
+    weather       = jasmine.createSpy('weather');
+    landedPlane   = new Plane("landed");
+    inFlightPlane = new Plane("in flight");
   });
 
   describe('instructs a plane to', function () {
     beforeEach(function() {
+      airport = new Airport();
       spyOn(airport.weather, 'isStormy').and.returnValue(false);
     });
 
     it('land and receives confirmation', function () {
-      airport.plane.changeStatus();
-      expect(airport.land(plane)).toEqual('Plane Has Landed!');
-      expect(airport.plane.getStatus()).toEqual('landed');
+      expect(airport.land(inFlightPlane)).toEqual('Plane Has Landed!');
+      expect(inFlightPlane.getStatus()).toEqual('landed');
     });
   });
 });

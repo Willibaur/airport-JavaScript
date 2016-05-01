@@ -7,7 +7,7 @@ describe('Airport', function() {
 
   beforeAll(function() {
     airport = new Airport();
-    plane   = jasmine.createSpy('plane');
+    plane   = jasmine.createSpyObj('plane', ['changeStatus']);
     weather = jasmine.createSpy('weather');
   });
 
@@ -18,10 +18,12 @@ describe('Airport', function() {
 
     it('land', function() {
       expect(airport.land(plane)).toEqual('Plane Has Landed!');
+      expect(plane.changeStatus).toHaveBeenCalled();
     });
 
     it('take off', function() {
       expect(airport.takeOff(plane)).toEqual('Plane Has Taken Off!');
+      expect(plane.changeStatus).toHaveBeenCalled();
     });
   });
 
@@ -54,6 +56,4 @@ describe('Airport', function() {
       expect(airport.capacity).toEqual(77);
     });
   });
-
-
 });
