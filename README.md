@@ -5,7 +5,7 @@ Airport Emulator JavaScript
 Task
 -----
 
-This is a solution to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories that we worked out in collaboration with the client:
+This is a solution to control the flow of planes at an airport. The planes can land and take off provided that the weather is sunny. Occasionally it may be stormy, in which case no planes can land or take off.  Here are the user stories used for the solution:
 
 ```
 As an air traffic controller
