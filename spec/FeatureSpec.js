@@ -1,29 +1,25 @@
 'user strict';
 
 describe('Feature Test:', function () {
-  var planeInFlight;
-  var planeLanded;
+  var plane;
   var airport;
   var weather;
 
   beforeAll(function() {
-    planeInFlight = new Plane('in flight');
-    planeLanded   = new Plane('landed');
-    airport       = new Airport();
-    weather       = new Weather();
+    plane   = new Plane('landed');
+    airport = new Airport();
+    weather = jasmine.createSpy('weather');
   });
 
-  describe('sets capacity to', function () {
-    it('default of 20 planes ', function () {
-      airport = new Airport();
-      expect(airport.capacity).toEqual(20);
+  describe('instructs a plane to', function () {
+    beforeEach(function() {
+      spyOn(airport.weather, 'isStormy').and.returnValue(false);
     });
 
-    it('sets airport capacity', function () {
-      airport = new Airport(77);
-      expect(airport.capacity).toEqual(77);
+    it('land and receives confirmation', function () {
+      airport.plane.changeStatus();
+      expect(airport.land(plane)).toEqual('Plane Has Landed!');
+      expect(airport.plane.getStatus()).toEqual('landed');
     });
   });
-
-  
 });

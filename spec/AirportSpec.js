@@ -31,18 +31,21 @@ describe('Airport', function() {
     });
 
     it('take off', function() {
+      msg = 'Plane cannot land';
       expect(airport.weatherCheck()).toEqual(true);
-      expect(function() { airport.land(plane); }).toThrowError('Plane can not land');
+      expect( function() { airport.land(plane); } ).toThrowError(msg);
     });
 
     it('land', function() {
+      msg = 'Plane cannot take off';
       expect(airport.weatherCheck()).toEqual(true);
-      expect(function() { airport.takeOff(plane); }).toThrowError('Plane cannot take off');
+      expect( function() { airport.takeOff(plane); } ).toThrowError(msg);
     });
   });
 
   describe('sets capacity to', function() {
     it('default of 20 planes', function() {
+      airport = new Airport();
       expect(airport.capacity).toEqual(20);
     });
 
@@ -51,4 +54,6 @@ describe('Airport', function() {
       expect(airport.capacity).toEqual(77);
     });
   });
+
+
 });
