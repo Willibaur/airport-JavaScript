@@ -1,6 +1,6 @@
 'user strict';
 
-describe('Feature Test:', function () {
+describe('Airport Feature Test:', function () {
   var planeInFlight;
   var planeLanded;
   var airport;
@@ -13,8 +13,15 @@ describe('Feature Test:', function () {
     weather       = new Weather();
   });
 
-  it('sets airport capacity', function () {
-    airport = new Airport(77);
-    expect(airport.capacity).toEqual(77);
+  describe('sets capacity to', function () {
+    it('default of 20 planes ', function () {
+      airport = new Airport();
+      expect(airport.capacity).toEqual(20);
+    });
+
+    it('sets airport capacity', function () {
+      airport = new Airport(77);
+      expect(airport.capacity).toEqual(77);
+    });
   });
 });
