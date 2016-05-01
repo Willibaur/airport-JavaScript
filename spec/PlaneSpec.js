@@ -1,33 +1,38 @@
 'user strict';
 
 describe('Plane',function(){
-  var planeInFlight;
-  var planeLanded;
+  var plane;
 
   beforeEach(function() {
-    planeInFlight = new Plane('in flight');
-    planeLanded   = new Plane('landed');
+    plane = new Plane();
+  });
+
+  it('sets up default status to landed', function () {
+    expect(plane.getStatus()).toEqual('landed');
   });
 
   describe('receives initial status when created as', function() {
     it('in flight', function() {
-      expect(planeInFlight.readStatus()).toEqual('in flight');
+      plane = new Plane("in flight");
+      expect(plane.getStatus()).toEqual('in flight');
     });
 
     it('landed', function() {
-      expect(planeLanded.readStatus()).toEqual('landed');
+      plane = new Plane('landed');
+      expect(plane.getStatus()).toEqual('landed');
     });
   });
 
   describe('changes status to', function() {
     it('landed when at airport',function(){
-      planeInFlight.changeStatus();
-      expect(planeInFlight.readStatus()).toEqual('landed');
+      plane = new Plane('in flight');
+      plane.changeStatus();
+      expect(plane.getStatus()).toEqual('landed');
     });
 
     it('in flight when leaves airport',function(){
-      planeLanded.changeStatus();
-      expect(planeLanded.readStatus()).toEqual('in flight');
+      plane.changeStatus();
+      expect(plane.getStatus()).toEqual('in flight');
     });
   });
 });

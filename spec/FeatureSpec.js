@@ -1,6 +1,6 @@
 'user strict';
 
-describe('Airport Feature Test:', function () {
+describe('Feature Test:', function () {
   var planeInFlight;
   var planeLanded;
   var airport;
@@ -24,4 +24,6 @@ describe('Airport Feature Test:', function () {
       expect(airport.capacity).toEqual(77);
     });
   });
+
+  
 });

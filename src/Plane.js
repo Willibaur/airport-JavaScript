@@ -1,10 +1,10 @@
 'user strict';
 
 function Plane(initialStatus) {
-  this.status =  initialStatus;
+  this.status = typeof initialStatus !== 'undefined' ? initialStatus : 'landed';
 }
 
-Plane.prototype.readStatus = function () {
+Plane.prototype.getStatus = function () {
   return this.status;
 };
 
