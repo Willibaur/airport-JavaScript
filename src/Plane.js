@@ -9,8 +9,6 @@ Plane.prototype.getStatus = function () {
 };
 
 Plane.prototype.changeStatus = function () {
-  console.log(this.status);
   if (this.status === 'in flight') { this.status = 'landed'; }
   else  { this.status = 'in flight'; }
-  console.log(this.status);
 };

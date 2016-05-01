@@ -16,7 +16,7 @@ function Airport(capacity) {
   };
 
   Airport.prototype.takeOff = function(plane) {
-    if (this.weatherCheck()) { throw new Error('Plane cannot take off');}
+    if (this.weatherCheck()) { throw new Error('Plane cannot take off'); }
     else {
       plane.changeStatus();
       return 'Plane Has Taken Off!';
