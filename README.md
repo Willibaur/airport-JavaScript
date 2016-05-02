@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/Willibaur/airport-JavaScript.svg?branch=master)](https://travis-ci.org/Willibaur/airport-JavaScript)
+=================
+
 Airport Emulator JavaScript
 =================
 
