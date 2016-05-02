@@ -11,19 +11,28 @@ describe('Airport', function() {
     weather = jasmine.createSpy('weather');
   });
 
-  describe('when sunny weather allows a plane to', function() {
+  describe('when sunny weather', function() {
     beforeEach(function() {
       spyOn(airport.weather, 'isStormy').and.returnValue(false);
     });
 
-    it('land', function() {
+    it('allows to land', function() {
       expect(airport.land(plane)).toEqual('Plane Has Landed!');
       expect(plane.changeStatus).toHaveBeenCalled();
     });
 
-    it('take off', function() {
+    it('allows to take off', function() {
       expect(airport.takeOff(plane)).toEqual('Plane Has Taken Off!');
       expect(plane.changeStatus).toHaveBeenCalled();
+    });
+
+    it('does not allow to land if airport full', function () {
+      for (var i = 1; i < airport.capacity; i++) {
+        airport.land(plane);
+      }
+      msg = "Airport full plane cannot land";
+      expect(airport.planes.length).toEqual(airport.capacity);
+      expect( function() { airport.land(plane); }).toThrowError(msg);
     });
   });
 
