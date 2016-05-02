@@ -19,10 +19,20 @@ function Airport(capacity) {
 
   Airport.prototype.takeOff = function(plane) {
     if (this.weatherCheck()) { throw new Error('Plane cannot take off'); }
+    else if (this.angarPlace(plane) === -1) { throw new Error('Plane does not exist within airport') ;}
     else {
-      plane.changeStatus();
+      this.removePlane(plane);
       return 'Plane Has Taken Off!';
     }
+  };
+
+  Airport.prototype.removePlane = function (plane) {
+    plane.changeStatus();
+    this.planes.splice(this.angarPlace(plane),1);
+  };
+
+  Airport.prototype.angarPlace = function (plane) {
+    return this.planes.indexOf(plane);
   };
 
   Airport.prototype.storePlane = function (plane) {

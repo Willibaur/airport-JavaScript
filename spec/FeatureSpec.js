@@ -25,8 +25,9 @@ describe('Feature Test:', function () {
     });
 
     it('take off and receive confirmation', function () {
-      expect(airport.takeOff(landedPlane)).toEqual('Plane Has Taken Off!');
-      expect(landedPlane.getStatus()).toEqual('in flight');
+      airport.land(inFlightPlane);
+      expect(airport.takeOff(inFlightPlane)).toEqual('Plane Has Taken Off!');
+      expect(inFlightPlane.getStatus()).toEqual('in flight');
     });
 
     it('not to land when airport is full', function () {

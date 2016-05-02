@@ -13,6 +13,7 @@ describe('Airport', function() {
 
   describe('when sunny weather', function() {
     beforeEach(function() {
+      airport = new Airport();
       spyOn(airport.weather, 'isStormy').and.returnValue(false);
     });
 
@@ -22,17 +23,23 @@ describe('Airport', function() {
     });
 
     it('allows to take off', function() {
+      airport.land(plane);
       expect(airport.takeOff(plane)).toEqual('Plane Has Taken Off!');
       expect(plane.changeStatus).toHaveBeenCalled();
     });
 
-    it('does not allow to land if airport full', function () {
-      for (var i = 1; i < airport.capacity; i++) {
+    it('does not allow to land if at full capacity', function () {
+      for (var i = 0; i < airport.capacity; i++) {
         airport.land(plane);
       }
       msg = "Airport full plane cannot land";
       expect(airport.planes.length).toEqual(airport.capacity);
       expect( function() { airport.land(plane); }).toThrowError(msg);
+    });
+
+    it('does not allow to take off if plane is not at airport', function () {
+      msg = "Plane does not exist within airport";
+      expect( function() { airport.takeOff(plane); }).toThrowError(msg);
     });
   });
 
