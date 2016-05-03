@@ -37,7 +37,7 @@ I want to prevent landing when the airport is full
 As the system designer
 So that the software can be used for many different airports
 I would like a default airport capacity that can be overridden as appropriate
-
+```
 
 Technologies used
 -----------------
@@ -45,20 +45,12 @@ Technologies used
 * Continuois integration
   * Travis CI
 
-  * Testing
-    * Jasmine
+* Testing
+  * Jasmine
 
-  * Back end framework
-    * JavaScript
+* Back end framework
+  * JavaScript
 
-
-Functionalities requested
--------------------------
-
-- Instruct or prevent to land and take off
-- Create required capacity
-- Flow control of planes at airport.
-- Change plane status
 
 Setting up testing environment
 ------------------------------
@@ -80,8 +72,6 @@ $ google-chrome SpecRunner.html   // For Linux Mint Debian
 
 This will open a window in your default browser where you can see all info related to the tests written in Jasmine.
 
-
-```
 
 Contributors
 ------------
